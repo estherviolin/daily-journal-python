@@ -19,11 +19,11 @@ export const EntryProvider = props => {
       .then(setEntries);
   };
 
-  const searchEntries = (searchTerm) => {
-    return fetch(`http://localhost:8088/entries?q=${searchTerm}`)
-      .then(res => res.json())
-      .then(setEntries);
-  };
+  // const searchEntries = (searchTerm) => {
+  //   return fetch(`http://localhost:8088/entries?q=${searchTerm}`)
+  //     .then(res => res.json())
+  //     .then(setEntries);
+  // };
 
   const getEntryById = id => {
     return fetch(`http://localhost:8088/entries/${id}`)
@@ -47,15 +47,15 @@ export const EntryProvider = props => {
     }).then(getEntries);
   };
 
-  const updateEntry = entry => {
-    return fetch(`http://localhost:8088/entries/${entry.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(entry)
-    }).then(getEntries);
-  };
+  // const updateEntry = entry => {
+  //   return fetch(`http://localhost:8088/entries/${entry.id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(entry)
+  //   }).then(getEntries);
+  // };
 
   return (
     <EntryContext.Provider
@@ -64,11 +64,11 @@ export const EntryProvider = props => {
         getEntries,
         addEntry,
         deleteEntry,
-        updateEntry,
+        // updateEntry,
         getEntryById,
         entry,
         setEntry,
-        searchEntries
+        // searchEntries
       }}
     >
       {props.children}
