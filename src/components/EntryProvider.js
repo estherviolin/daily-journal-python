@@ -44,7 +44,9 @@ export const EntryProvider = props => {
   const deleteEntry = entry => {
     return fetch(`http://localhost:8088/entries/${entry.id}`, {
       method: "DELETE"
-    }).then(getEntries);
+    })
+    .then(getEntries)
+    
   };
 
   // const updateEntry = entry => {

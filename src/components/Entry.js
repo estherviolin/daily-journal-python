@@ -16,6 +16,7 @@ export const Entry = ({ entry, moods }) => {
 
       <button onClick={
         () => {
+          debugger
           deleteEntry(entry)
         }
       }>Delete</button>
