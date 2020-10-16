@@ -39,36 +39,23 @@ export const EntryForm = (props) => {
         if (editMode) {
             updateEntry({
                 id: entry.id,
-                concept: entry.concept,
                 entry: entry.entry,
                 date: entry.date,
-                moodId: parseInt(entry.moodId)
+                mood_id: parseInt(entry.mood_id)
             })
         } else {
             addEntry({
-                concept: entry.concept,
                 entry: entry.entry,
                 date: Date.now(),
-                moodId: parseInt(entry.moodId)
+                mood_id: parseInt(entry.mood_id)
             })
         }
-        setEntry({ concept: "", entry: "", moodId: 0 })
+        setEntry({entry: "", mood_id: 0 })
     }
 
     return (
         <form className="EntryForm">
             <h2 className="EntryForm__title">{editMode ? "Update Entry" : "Create Entry"}</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="concept">Concept: </label>
-                    <input type="text" name="concept" required autoFocus className="form-control"
-                        proptype="varchar"
-                        placeholder="Concept"
-                        value={entry.concept}
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="entry">Entry: </label>
@@ -85,7 +72,7 @@ export const EntryForm = (props) => {
                     <label htmlFor="moodId">Mood: </label>
                     <select name="moodId" className="form-control"
                         proptype="int"
-                        value={entry.moodId}
+                        value={entry.mood_id}
                         onChange={handleControlledInputChange}>
 
                         <option value="0">Select a mood</option>
